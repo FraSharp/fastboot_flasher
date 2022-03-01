@@ -5,3 +5,6 @@ python3 flashall.py
 
 ## Note
 You have to put flashall.py in the same directory where the images are
+
+## Demo
+![flasher demo](./flasher_demo.png)
