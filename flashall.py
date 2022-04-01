@@ -26,11 +26,11 @@ print(color.RED + "starting to flash rom...\n" + color.END)
 time.sleep(1)
 
 for partition in partitions:
-	if not os.path.exists("./" + partition + ".img"):
-		print(color.BOLD + color.PURPLE + "no", partition, "to flash" + color.END)
+	if not os.path.exists(f"./{partition}.img"):
+		print(color.BOLD + color.PURPLE + f"no {partition} to flash" + color.END)
 	elif partition == "vbmeta" or partition == "vbmeta_system":
-		os.system("fastboot flash --disable-verity " + partition + " " + partition + ".img")
+		os.system(f"fastboot flash --disable-verity {partition} {partition}.img")
 	else:
-		os.system("fastboot flash " + partition + " " + partition + ".img")
+		os.system(f"fastboot flash {partition} {partition}.img")
 
 print("\n" + color.BOLD + color.RED + "format data if coming from another rom, else just reboot" + color.END)
