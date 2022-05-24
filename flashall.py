@@ -22,8 +22,22 @@ print("\n" + color.BOLD + color.UNDERLINE + color.CYAN + "2021-2022\nby FraSharp
 print(color.RED + "\npreparing to flash rom, 5 seconds to abort..." + color.END)
 time.sleep(5)
 
+print(color.PURPLE+"Checking if partitions are there..."+color.END)
+time.sleep(1)
+
+missing = False
+for partition in partitions:
+   if not os.path.exists(f"./{partition}.img"):
+      missing = True
+      print(color.RED+f"Missing partition {partition}"+ color.END)
+if missing:
+   print(color.RED+f"due to the missing partitions you have 5 seconds to abort..."+ color.END)
+   time.sleep(5)
+del missing
+
 print(color.RED + "starting to flash rom...\n" + color.END)
 time.sleep(1)
+
 
 for partition in partitions:
 	if not os.path.exists(f"./{partition}.img"):
